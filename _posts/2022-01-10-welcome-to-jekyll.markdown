@@ -1,11 +1,11 @@
 ---
 layout: post
 title:  "Technology Interview Post"
-date:   2022-01-19 16:29:23 -0500
-tags: meme btc
+date:   2022-01-10 16:29:23 -0500
 author: John Smith
+tags: meme btc
 audio: true
-external_file: https://media.giphy.com/media/nbMyAHO0PAVxJ5uJmG/giphy.gif
+external_file: https://media.giphy.com/media/xFmwnGWu0UUb0pRIVq/giphy.gif
 ---
 You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run `jekyll serve`, which launches a web server and auto-regenerates your site when a file is updated.
 

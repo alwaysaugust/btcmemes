@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+
+  {%- include head.html -%}
+
+  <body class="layout-{{ page.layout }}">
+
+    <script type="text/javascript">
+      (function(){
+        const theme = localStorage.getItem('theme');
+        if ((!theme && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) || (theme && theme == "dark")) {
+          document.querySelector('body').classList.add('dark');
+          document.querySelector('body').style.backgroundColor = '#121212';
+        }
+      })();
+    </script>
+
+    {%- include header.html -%}
+
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        {{ content }}
+      </div>
+    </main>
+
+    {%- include footer.html -%}
+
+  </body>
+
+</html>

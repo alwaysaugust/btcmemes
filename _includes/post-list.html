@@ -1,0 +1,25 @@
+<div class="post-item">
+  <a href="{{ post.url | relative_url }}">
+  {%- if post.external_file -%}
+    <div class="post-item-content" style="background-image: url({{ post.external_file }})">
+      <img src="{{ post.external_file }}" class="masonry-content" />
+      <div class="img-overlay">
+        <span class="link-url">{{ post.external_file }}</span>
+        <span class="share-link">
+          <img src="/assets/images/link.svg" alt="link" />
+        </span>
+      </div>
+    </div>
+  {%- else -%}
+    <div class="post-item-content" style="background-image: url({{ post.local_file }})">
+      <img src="{{ post.local_file }}" class="masonry-content" />
+      <div class="img-overlay">
+        <span class="link-url">{{ post.url }}</span>
+        <span class="share-link">
+          <img src="/assets/images/link.svg" alt="link" />
+        </span>
+      </div>
+    </div>
+  {%- endif -%}
+  </a>
+</div>

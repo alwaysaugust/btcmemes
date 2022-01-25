@@ -1,0 +1,92 @@
+---
+layout: default
+---
+
+<div class="page post">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-6">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+          <header class="post-header">
+            <h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
+            <div class="post-meta">
+              <p class="author-date">
+                {%- if page.author -%}
+                  {% for author in page.author %}
+                    <strong>Author:</strong> 
+                    <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+                      <span class="p-author h-card" itemprop="name">{{ author }}</span></span>
+                      {%- if forloop.last == false %}, {% endif -%}
+                  {% endfor %}
+                  •
+                {%- endif -%}
+                {%- assign date_format = site.minima.date_format | default: "%B %-d, %Y" -%}
+                <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+                  {{ page.date | date: date_format }}
+                </time>
+              </p>
+              <ul class="social">
+                {% assign url_placeholder = "<url>" %}
+                {% assign text_placeholder = "<title>" %}
+                {% assign twitter_placeholder = "<twitter>" %}
+                {% assign page_url = "https://btcreviews.com" | append: page.url | uri_escape %}
+                {% for button in site.data.social-buttons %}
+                  {% assign button_url = button.url
+                    | replace: text_placeholder, page.title
+                    | replace: url_placeholder, page_url
+                    | replace: twitter_placeholder, site.twitter_username
+                    | uri_escape
+                  %}
+                  <li>
+                    <a href="{{ button_url }}" target="_blank" class="js-social-buttons">
+                      <img src="/assets/images/{{ button.svg }}" alt="{{ button.title }}" title="{{ button.title }}" />
+                    </a>
+                  </li>
+                {% endfor %}
+              </ul>
+              <button type="button" class="btn btn-link share-link">Share Link</button>
+            </div>
+          </header>
+
+          {%- if page.external_file -%}
+            <div class="featured-image">
+              <img src="{{ page.external_file }}" alt="{{ page.tags }}" />
+            </div>
+          {%- else -%}
+            <div class="featured-image">
+              <img src="{{ page.local_file }}" alt="{{ page.tags }}" />
+            </div>
+          {%- endif -%}
+
+          <div class="post-content e-content" itemprop="articleBody">
+            {{ content }}
+          </div>
+
+          {%- if site.disqus.shortname -%}
+            {%- include disqus_comments.html -%}
+          {%- endif -%}
+
+          <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
+        </article>
+
+        <div class="submit-cta">
+          <h4>Have a Bitcoin related story you would like to share?</h4>
+          <button type="button" class="btn btn-primary">
+            <svg width="12px" height="12px" viewBox="0 0 12 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+              <g id="White" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                <g id="White-Home" transform="translate(-1181.000000, -81.000000)">
+                  <g id="Group-14" transform="translate(-1.000000, 61.000000)">
+                    <g id="Group-11" transform="translate(1164.000000, 3.000000)">
+                      <polygon id="Fill" fill="#FFFFFF" points="24.75 22.25 24.75 17 23.25 17 23.25 22.25 18 22.25 18 23.75 23.25 23.75 23.25 29 24.75 29 24.75 23.75 30 23.75 30 22.25"></polygon>
+                    </g>
+                  </g>
+                </g>
+              </g>
+            </svg>
+            Submit Story
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

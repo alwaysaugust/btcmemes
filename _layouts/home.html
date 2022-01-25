@@ -1,0 +1,33 @@
+---
+layout: default
+---
+
+<div class="home page">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        {%- if page.title -%}
+          <h1 class="page-heading">{{ page.title }}</h1>
+        {%- endif -%}
+
+        {% assign posts = site.posts %}
+
+        {%- if posts.size > 0 -%}
+          {%- if page.list_title -%}
+            <h2 class="post-list-heading">{{ page.list_title }}</h2>
+          {%- endif -%}
+          <div class="post-list">
+            <div class="post-sizer"></div>
+            <div class="gutter-sizer"></div>
+            {%- assign date_format = site.minima.date_format | default: "%B %-d, %Y" -%}
+            {%- for post in posts limit: 10 -%}
+              {%- include post-list.html -%}
+            {%- endfor -%}
+            {%- include list-spinner.html -%}
+          </div>
+
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</div>
