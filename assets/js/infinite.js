@@ -113,7 +113,7 @@
   }
 
   function removeCurrentPosts() {
-    let currentPosts = postsContainer.querySelectorAll('li > a');
+    let currentPosts = postsContainer.querySelectorAll('div > a');
     currentPosts.forEach(function(post) { post.parentNode.remove() });
   }
 
@@ -140,7 +140,7 @@
     }
 
     // show more pagination?
-    if (postsList.length <= postsContainer.querySelectorAll('li > a').length) {
+    if (postsList.length <= postsContainer.querySelectorAll('div > a').length) {
       spinner.style.display = 'none';
     }
     else {
@@ -171,7 +171,7 @@
         listItemImg.classList.add("masonry-content");
         imgOverlay.innerHTML = `
             <span class="link-url">${item.external_file}</span>
-            <span class="share-link">
+            <span class="share-link" data-link="${item.external_file}">
               <img src="/assets/images/link.svg" alt="link" />
             </span>`;
       } else {
@@ -180,7 +180,7 @@
         listItemContent.style.backgroundImage = "url('" + item.local_file + "')";
         imgOverlay.innerHTML = `
             <span class="link-url">${window.document.location.origin + item.url}</span>
-            <span class="share-link">
+            <span class="share-link" data-link="${window.document.location.origin + item.url}">
               <img src="/assets/images/link.svg" alt="link" />
             </span>`;
       }
@@ -189,13 +189,21 @@
       listItemContent.append(imgOverlay);
       listItemA.append(listItemContent)
       listItem.append(listItemA);
-      spinner.before(listItem);
+      postsContainer.append(listItem);
 
       msnry.appended( listItem );
       imagesLoaded( '.post-list', () => {
         msnry.layout();
       });
     });
+
+    const shareLinkButtons = document.querySelectorAll('span.share-link');
+    if (shareLinkButtons) {
+      Array.from(shareLinkButtons).forEach(function(element) {
+        element.removeEventListener('click', onShareButtonClicked);
+        element.addEventListener('click', onShareButtonClicked);
+      });
+    }
 
     // increment current index
     current += perPage;

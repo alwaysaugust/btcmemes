@@ -5,7 +5,7 @@
       <img src="{{ post.external_file }}" class="masonry-content" />
       <div class="img-overlay">
         <span class="link-url">{{ post.external_file }}</span>
-        <span class="share-link">
+        <span class="share-link" data-link="{{ post.external_file }}">
           <img src="/assets/images/link.svg" alt="link" />
         </span>
       </div>
@@ -15,7 +15,7 @@
       <img src="{{ post.local_file }}" class="masonry-content" />
       <div class="img-overlay">
         <span class="link-url">{{ post.url }}</span>
-        <span class="share-link">
+        <span class="share-link" data-link="{{ post.url }}">
           <img src="/assets/images/link.svg" alt="link" />
         </span>
       </div>

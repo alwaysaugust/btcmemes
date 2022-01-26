@@ -23,11 +23,17 @@ layout: default
             {%- for post in posts limit: 10 -%}
               {%- include post-list.html -%}
             {%- endfor -%}
-            {%- include list-spinner.html -%}
           </div>
-
+          {%- include list-spinner.html -%}
         {%- endif -%}
       </div>
     </div>
   </div>
+
+  <div class="alert alert-copied hidden" role="alert">
+    <div class="alert-content">
+      Copied share link to clipboard
+    </div>
+  </div>
+
 </div>

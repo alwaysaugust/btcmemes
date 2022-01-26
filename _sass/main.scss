@@ -957,9 +957,11 @@ body {
         height: 27px;
         background: #fff;
         border-radius: 50%;
+        cursor: pointer;
 
         img {
           width: 15px;
+          pointer-events: none;
         }
       }
     }
@@ -1246,5 +1248,35 @@ body {
   .response {
     font-size: 0.75rem;
     margin: 1rem 0 0;
+  }
+}
+
+.alert-copied {
+  position: fixed;
+  bottom: 40px;
+  width: 100%;
+  text-align: center;
+
+  .alert-content {
+    width: 650px;
+    background: rgba(0, 0, 0, 0.83);
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: .75rem;
+    color: #fff;
+    margin: auto;
+    padding: 22px 0;
+
+    @media all and (max-width: $mediumMax) {
+      width: 650px;
+    }
+
+    @media all and (max-width: $smallMax) {
+      width: 100%;
+    }
+  }
+
+  &.hidden {
+    display: none;
   }
 }

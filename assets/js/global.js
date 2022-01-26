@@ -110,29 +110,4 @@ var $grid, msnry;
     document.querySelector('.modal-overlay.open').classList.remove('open');
   }
 
-  // masonry
-  // $grid = $('.post-list').masonry({
-  //   itemSelector: '.post-item',
-  //   columnWidth: '.post-sizer',
-  //   percentPosition: true,
-  //   horizontalOrder: true,
-  //   gutter: 10
-  // });
-  //
-  // $grid.imagesLoaded().progress(function () {
-  //   $grid.masonry('layout');
-  // });
-
-  let elem = document.querySelector('.post-list');
-  msnry = new Masonry( elem, {
-    // options
-    itemSelector: '.post-item',
-    columnWidth: '.post-sizer',
-    percentPosition: true,
-    horizontalOrder: true,
-    gutter: '.gutter-sizer'
-  });
-  imagesLoaded( elem, () => {
-    msnry.layout();
-  });
 })();
