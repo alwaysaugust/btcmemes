@@ -750,15 +750,6 @@ body {
         }
       }
     }
-
-    &.list-spinner {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 2rem 0;
-      border-bottom: none;
-    }
-
     a {
       display: flex;
       align-items: center;
@@ -1267,6 +1258,11 @@ body {
     margin: auto;
     padding: 22px 0;
 
+    body.dark & {
+      background: rgba(255, 255, 255, 0.83);;
+      color: $almostBlack;
+    }
+
     @media all and (max-width: $mediumMax) {
       width: 650px;
     }
@@ -1279,4 +1275,12 @@ body {
   &.hidden {
     display: none;
   }
+}
+
+.list-spinner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 0;
+  border-bottom: none;
 }
