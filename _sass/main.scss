@@ -5,6 +5,7 @@
 @import "./bootstrap/_forms";
 @import "./bootstrap/helpers/visually-hidden";
 @import "./hamburgers.min.scss";
+@import "./dropzone.min.scss";
 
 $bodyFont: "Inter", sans-serif;
 
@@ -292,10 +293,10 @@ body {
 }
 
 .bottom-header {
-  border-top: 1px solid #DDDDDD;
-  border-bottom: 1px solid $almostBlack;
+  border-bottom: 1px solid #DDD;
   position: sticky;
   top: calc(62px + 35px);
+  padding: 25px 0;
   z-index: 4;
   background-color: white;
 
@@ -310,7 +311,6 @@ body {
   body.dark & {
     background-color: $darkBackground;
     border-bottom-color: #585858;
-    border-top-color: rgba(#DDDDDD, 0.14);
   }
 
   body.layout-post & {
@@ -322,11 +322,6 @@ body {
   &.search-active {
     .categories {
       display: none;
-    }
-
-    .btn.search {
-      margin-right: auto;
-      border-right: none;
     }
 
     .search-container {
@@ -503,11 +498,9 @@ body {
     }
   }
 
-  .search,
   .archive-link {
     padding: 11.5px 20px 8.5px;
     border: none;
-    border-right: 1px solid #DDDDDD;
     border-radius: 0;
     height: 100%;
 
@@ -530,14 +523,35 @@ body {
   }
 
   .search-container {
-    display: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-grow: 1;
+    position: relative;
+
+    .svg-search {
+      position: absolute;
+      left: 20px;
+      height: 100%;
+      display: flex;
+      align-items: center;
+
+      body.dark & {
+        svg {
+          fill: #FFF;
+        }
+      }
+    }
 
     .form-control {
       border: none;
-      border-radius: 0;
+      border-radius: 5px;
+      background-color: #F6F6F6;
+      padding: 15px 100px 15px 60px;
+      line-height: 20px;
 
       body.dark & {
-        background-color: transparent;
+        background-color: #212121;
         color: white;
 
         &::placeholder {
@@ -553,12 +567,30 @@ body {
     }
 
     .btn.close {
+      display: none;
+
       svg {
         g#White-Search {
           body.dark & {
             fill: white;
           }
         }
+      }
+    }
+
+    .btn.search {
+      border: 1px solid #000;
+      right: 7px;
+      position: absolute;
+      line-height: 26px;
+      font-size: 12px;
+      font-weight: bold;
+      padding: 4px 26px;
+      color: $almostBlack;
+
+      body.dark & {
+        border: 1px solid #FFF;
+        color: #fff;
       }
     }
   }
@@ -611,9 +643,31 @@ body {
     }
   }
 
+  .share {
+    @media all and (max-width: $smallMax) {
+      width: 100%;
+    }
+
+    &:hover,
+    body.dark & {
+      svg {
+        path {
+          fill: white;
+        }
+      }
+    }
+
+    body.dark &:hover {
+      svg {
+        path {
+          fill: $almostBlack;
+        }
+      }
+    }
+  }
+
   .theme-toggle {
     padding: 11px 20px 9px;
-    border-right: 1px solid #DDDDDD;
     height: 100%;
   }
 }
@@ -1091,6 +1145,59 @@ body {
           }
         }
       }
+    }
+  }
+
+  .card {
+    border-radius: 5px;
+    padding: 40px;
+    border: 1px solid #F0F0F0;
+    max-width: 480px;
+    width: 100%;
+
+    .card-header {
+      font-size: 12px;
+      font-weight: 500;
+      margin-bottom: 14px;
+      display: inline-block;
+    }
+
+    .form-control {
+      margin-bottom: 20px;
+      border-radius: 4px;
+      width: 100%;
+    }
+
+    .btn.share {
+      border: 1px solid #000;
+      line-height: 26px;
+      font-size: 12px;
+      font-weight: bold;
+      padding: 4px 26px;
+      color: $almostBlack;
+
+      img {
+        width: 15px;
+        pointer-events: none;
+      }
+
+      span {
+        pointer-events: none;
+      }
+
+      body.dark & {
+        border: 1px solid #FFF;
+        color: #fff;
+      }
+    }
+
+    body.dark & {
+      border-color: #585858;
+    }
+
+    @media all and (max-width: $mediumMax) {
+      max-width: 100%;
+      margin: 30px 0;
     }
   }
 }

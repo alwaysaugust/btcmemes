@@ -22,6 +22,14 @@
       element.addEventListener('click', onShareButtonClicked);
     });
   }
+
+  //Upload
+  Dropzone.options.uploadZone = {
+    autoProcessQueue: false,
+    addRemoveLinks: true,
+    previewTemplate: document.querySelector('#upload-preview-template-container').innerHTML,
+    previewsContainer: "#upload-preview-template-container"
+  };
 })();
 
 function onShareButtonClicked(e) {

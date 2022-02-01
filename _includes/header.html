@@ -51,41 +51,7 @@
   <div class="container">
     <div class="row">
       <div class="col-12 bar">
-        {%- if page.layout != "post" -%}
-          <ul class="categories">
-            <li>
-              {%- if page.url == "/" -%}
-                {%- assign allClass = "active" -%}
-              {%- endif -%}
-              <a href="/" class="{{ allClass }}">
-                <svg width="14px" height="14px" viewBox="0 0 14 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                  <g id="White" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                    <g id="White-Home" transform="translate(-85.000000, -153.000000)" fill="#000000">
-                      <g id="Group-14" transform="translate(-1.000000, 61.000000)">
-                        <g id="Actions-/-Navigation-/-apps-/-24" transform="translate(86.500000, 92.000000)">
-                          <path d="M4.5,1.5 L4.5,4.5 L1.5,4.5 L1.5,1.5 L4.5,1.5 Z M6,0 L0,0 L0,6 L6,6 L6,0 Z M12,1.5 L12,4.5 L9,4.5 L9,1.5 L12,1.5 Z M13.5,0 L7.5,0 L7.5,6 L13.5,6 L13.5,0 Z M4.5,9 L4.5,12 L1.5,12 L1.5,9 L4.5,9 Z M6,7.5 L0,7.5 L0,13.5 L6,13.5 L6,7.5 Z M12,9 L12,12 L9,12 L9,9 L12,9 Z M13.5,7.5 L7.5,7.5 L7.5,13.5 L13.5,13.5 L13.5,7.5 Z" id="Fill"></path>
-                        </g>
-                      </g>
-                    </g>
-                  </g>
-                </svg>
-                All Categories
-              </a>
-            </li>
-            {%- assign sortedCategories = site.categories | sort -%}
-            {%- for category in sortedCategories -%}
-              {%- assign cat4url = "/category/" | append: category[0] | remove:' ' | downcase -%}
-              {%- if page.url == cat4url -%}
-                {%- assign class = "active" -%}
-              {%- else -%}
-                {%- assign class = "" -%}
-              {%- endif -%}
-              <li>
-                <a href="{{ site.baseurl | append: cat4url }}" class="{{ class }}">{{ category[0] | replace: "_", " " }}</a>
-              </li>
-            {%- endfor -%}
-          </ul>
-        {%- else -%}
+        {%- if page.layout == "post" -%}
           <a href="/" class="btn btn-link articles-back">
             <svg width="12px" height="10px" viewBox="0 0 12 10" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
               <g id="White" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -98,25 +64,18 @@
                 </g>
               </g>
             </svg>
-            <span>Back to articles</span>
+            <span>Back to gallery</span>
           </a>
         {%- endif -%}
         {%- if page.layout != "post" -%}
-          <button type="button" class="btn search">
-            <svg width="21px" height="22px" viewBox="0 0 21 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-              <g id="White" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                <g id="White-Home" transform="translate(-1034.000000, -149.000000)">
-                  <g id="Group-14" transform="translate(-1.000000, 61.000000)" fill="#000000">
-                    <g id="Fill" transform="translate(1034.000000, 87.500000)">
-                      <path d="M21.75,20.689425 L16.085925,15.02535 C18.9133336,11.6309352 18.5707781,6.61300919 15.3083015,3.63432866 C12.0458249,0.655648126 7.01751807,0.769911934 3.893715,3.893715 C0.769911934,7.01751807 0.655648126,12.0458249 3.63432866,15.3083015 C6.61300919,18.5707781 11.6309352,18.9133336 15.02535,16.085925 L20.689425,21.75 L21.75,20.689425 Z M3,9.75 C3,6.02207794 6.02207794,3 9.75,3 C13.4779221,3 16.5,6.02207794 16.5,9.75 C16.5,13.4779221 13.4779221,16.5 9.75,16.5 C6.02379137,16.4958667 3.00413335,13.4762086 3,9.75 Z"></path>
-                    </g>
-                  </g>
-                </g>
-              </g>
-            </svg>
-          </button>
           <div class="search-container">
-            <input type="text" name="search" id="desktop-search" class="form-control" placeholder="Search by keyword" />
+            <div class="svg-search">
+              <svg fill="#000" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 30 30" width="20px" height="20px">
+                <path d="M 13 3 C 7.4889971 3 3 7.4889971 3 13 C 3 18.511003 7.4889971 23 13 23 C 15.396508 23 17.597385 22.148986 19.322266 20.736328 L 25.292969 26.707031 A 1.0001 1.0001 0 1 0 26.707031 25.292969 L 20.736328 19.322266 C 22.148986 17.597385 23 15.396508 23 13 C 23 7.4889971 18.511003 3 13 3 z M 13 5 C 17.430123 5 21 8.5698774 21 13 C 21 17.430123 17.430123 21 13 21 C 8.5698774 21 5 17.430123 5 13 C 5 8.5698774 8.5698774 5 13 5 z"/>
+              </svg>
+            </div>
+            <input type="text" name="search" id="desktop-search" class="form-control" placeholder="Search for memes by keyword" />
+            <button type="button" class="btn search">Search</button>
             <button type="button" class="btn close">
               <svg width="12px" height="12px" viewBox="0 0 12 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <g id="White" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -143,21 +102,25 @@
               </g>
             </svg>
           </button>
+          {% include theme-toggle.html %}
         {%- else -%}
-          <a href="#" class="btn btn-link archive-link">Link to internet archive</a>
+          <button type="button" class="btn btn-outline-primary share">
+            <svg width="20px" height="22px" viewBox="0 0 20 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+              <g id="White" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                <g id="White-Home" transform="translate(-1320.000000, -76.000000)">
+                  <g id="Group-14" transform="translate(-1.000000, 61.000000)">
+                    <g id="Group-10" transform="translate(1309.000000, 3.000000)">
+                      <path d="M28.25,26 C27.1128825,26.0057167 26.0397817,26.5270947 25.3325,27.4175 L19.85,23.99 C20.0498122,23.3451231 20.0498122,22.6548769 19.85,22.01 L25.3325,18.5825 C26.4814693,20.0052143 28.4891016,20.3916952 30.0841435,19.4972191 C31.6791855,18.602743 32.3964318,16.6881902 31.7817149,14.9658751 C31.1669979,13.24356 29.3996041,12.2158079 27.5986654,12.5334021 C25.7977267,12.8509963 24.4884996,14.4213081 24.5,16.25 C24.5035407,16.5853842 24.554031,16.9186201 24.65,17.24 L19.1675,20.6675 C18.1754384,19.4186232 16.5019609,18.9339134 14.9960092,19.45926 C13.4900575,19.9846065 12.4811853,21.4050456 12.4811853,23 C12.4811853,24.5949544 13.4900575,26.0153935 14.9960092,26.54074 C16.5019609,27.0660866 18.1754384,26.5813768 19.1675,25.3325 L24.65,28.76 C24.554031,29.0813799 24.5035407,29.4146158 24.5,29.75 C24.5,31.8210678 26.1789322,33.5 28.25,33.5 C30.3210678,33.5 32,31.8210678 32,29.75 C32,27.6789322 30.3210678,26 28.25,26 Z M28.25,14 C29.4926407,14 30.5,15.0073593 30.5,16.25 C30.5,17.4926407 29.4926407,18.5 28.25,18.5 C27.0073593,18.5 26,17.4926407 26,16.25 C26,15.0073593 27.0073593,14 28.25,14 Z M16.25,25.25 C15.0073593,25.25 14,24.2426407 14,23 C14,21.7573593 15.0073593,20.75 16.25,20.75 C17.4926407,20.75 18.5,21.7573593 18.5,23 C18.5,24.2426407 17.4926407,25.25 16.25,25.25 L16.25,25.25 Z M28.25,32 C27.0073593,32 26,30.9926407 26,29.75 C26,28.5073593 27.0073593,27.5 28.25,27.5 C29.4926407,27.5 30.5,28.5073593 30.5,29.75 C30.5,30.9926407 29.4926407,32 28.25,32 L28.25,32 Z" id="Fill" fill="#121212"></path>
+                    </g>
+                  </g>
+                </g>
+              </g>
+            </svg>
+          </button>
         {%- endif -%}
-        {% include theme-toggle.html %}
       </div>
       <div class="col-12 bar mobile">
         <div class="form">
-          <div class="form-group">
-            <select class="form-control mobile-categories">
-              <option value="" data-url="/">All Categories</option>
-              {%- for category in sortedCategories -%}
-                <option value="{{ category[0] | remove:' ' | downcase }}">{{ category[0] | replace: "_", " " | capitalize }}</option>
-              {%- endfor -%}
-            </select>
-          </div>
           <div class="form-group">
             <select class="form-control sort-order">
               <option value="latest">Latest News</option>

@@ -48,14 +48,6 @@
     });
 
     // mobile filters
-    const mobileCategories = bottomHeader.querySelector('.mobile .mobile-categories');
-    mobileCategories.addEventListener('change', function(e) {
-      category = this.value;
-      removeCurrentPosts();
-      current = 0;
-      loadPosts(body.posts, category, reverse, searchStr);
-    });
-
     const mobileSort = bottomHeader.querySelector('.mobile .sort-order');
     mobileSort.addEventListener('change', function(e) {
       reverse = this.value == "oldest";
@@ -80,12 +72,16 @@
     const searchButton = bottomHeader.querySelector('.btn.search'),
       closeSearchButton = bottomHeader.querySelector('.btn.close'),
       desktopSearch = bottomHeader.querySelector('#desktop-search');
+    let desktopTimeout;
     searchButton.addEventListener('click', function(e) {
       e.preventDefault();
-      bottomHeader.classList.toggle('search-active');
-      if (bottomHeader.classList.contains("search-active")) {
-        bottomHeader.querySelector('#desktop-search').focus();
-      }
+      clearTimeout(desktopTimeout);
+      timeout = setTimeout(function() {
+        searchStr = desktopSearch.value;
+        removeCurrentPosts();
+        current = 0;
+        loadPosts(body.posts, category, reverse, searchStr);
+      }, 500);
     });
     closeSearchButton.addEventListener('click', function(e) {
       e.preventDefault();
@@ -96,16 +92,16 @@
       bottomHeader.classList.remove("search-active");
     });
 
-    let desktopTimeout;
-    desktopSearch.addEventListener('keyup', function(e) {
-      clearTimeout(desktopTimeout);
-      timeout = setTimeout(function() {
-        searchStr = desktopSearch.value;
-        removeCurrentPosts();
-        current = 0;
-        loadPosts(body.posts, category, reverse, searchStr);
-      }, 500);
-    });
+
+    // desktopSearch.addEventListener('keyup', function(e) {
+    //   clearTimeout(desktopTimeout);
+    //   timeout = setTimeout(function() {
+    //     searchStr = desktopSearch.value;
+    //     removeCurrentPosts();
+    //     current = 0;
+    //     loadPosts(body.posts, category, reverse, searchStr);
+    //   }, 500);
+    // });
   });
 
   function searchByKeyword() {
@@ -135,7 +131,7 @@
     }
 
     if (searchStr) {
-      let fuse = new Fuse(postsList, { keys: ['title'] });
+      let fuse = new Fuse(postsList, { keys: ['tags'] });
       postsList = fuse.search(searchStr);
     }
 

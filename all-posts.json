@@ -12,7 +12,7 @@ layout: none
       "external_file": "{{ post.external_file }}",
       "local_file": "{{ post.local_file }}",
       "audio": "{{ post.audio }}",
-      "categories": {{ post.categories | jsonify }}
+      "tags": {{ post.tags | jsonify }}
     }{% unless forloop.last %},{% endunless %}
     {% endfor %}
   ]

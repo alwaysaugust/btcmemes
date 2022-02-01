@@ -50,11 +50,13 @@ var $grid, msnry;
 
   // share modal
   const shareModal = document.querySelector('#share-modal'),
-    shareModalButton = document.querySelector('header.header .btn.share'),
+    shareButtons = document.querySelectorAll('header.header .btn.share, .bottom-header .btn.share'),
     shareModalCopyButton = shareModal.querySelector('.btn.btn-primary');
-  shareModalButton.addEventListener('click', function(e) {
-    e.preventDefault();
-    shareModal.classList.add('open');
+  shareButtons.forEach(button => {
+    button.addEventListener('click', function(e) {
+      e.preventDefault();
+      shareModal.classList.add('open');
+    });
   });
 
   shareModalCopyButton.addEventListener('click', function(e) {
