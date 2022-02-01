@@ -6,7 +6,6 @@
 
   let perPage = 10,
     current = 10,
-    category = null,
     reverse = false,
     searchStr = null;
 
@@ -24,16 +23,10 @@
       entries.forEach(function(entry) {
         if (entry.isIntersecting) {
           // load posts when spinner is visible
-          loadPosts(body.posts, category, reverse, searchStr);
+          loadPosts(body.posts, reverse, searchStr);
         }
       });
     }, options);
-
-    // filter category
-    const categoryAttribute = postsContainer.getAttribute('data-category');
-    if (categoryAttribute) {
-      category = categoryAttribute;
-    }
 
     observer.observe(spinner);
 
@@ -43,7 +36,7 @@
       current = 0;
       reverse = !reverse;
       removeCurrentPosts();
-      loadPosts(body.posts, category, reverse, searchStr);
+      loadPosts(body.posts, reverse, searchStr);
       sortButton.classList.toggle('old');
     });
 
@@ -53,7 +46,7 @@
       reverse = this.value == "oldest";
       removeCurrentPosts();
       current = 0;
-      loadPosts(body.posts, category, reverse, searchStr);
+      loadPosts(body.posts, reverse, searchStr);
     });
 
     const mobileSearch = bottomHeader.querySelector('.mobile #mobile-search');
@@ -64,13 +57,12 @@
         searchStr = mobileSearch.value;
         removeCurrentPosts();
         current = 0;
-        loadPosts(body.posts, category, reverse, searchStr);
+        loadPosts(body.posts, reverse, searchStr);
       }, 500);
     });
 
     // desktop search
     const searchButton = bottomHeader.querySelector('.btn.search'),
-      closeSearchButton = bottomHeader.querySelector('.btn.close'),
       desktopSearch = bottomHeader.querySelector('#desktop-search');
     let desktopTimeout;
     searchButton.addEventListener('click', function(e) {
@@ -80,51 +72,18 @@
         searchStr = desktopSearch.value;
         removeCurrentPosts();
         current = 0;
-        loadPosts(body.posts, category, reverse, searchStr);
+        loadPosts(body.posts, reverse, searchStr);
       }, 500);
     });
-    closeSearchButton.addEventListener('click', function(e) {
-      e.preventDefault();
-      removeCurrentPosts();
-      current = 0;
-      searchStr = null;
-      loadPosts(body.posts, category, reverse, searchStr);
-      bottomHeader.classList.remove("search-active");
-    });
 
-
-    // desktopSearch.addEventListener('keyup', function(e) {
-    //   clearTimeout(desktopTimeout);
-    //   timeout = setTimeout(function() {
-    //     searchStr = desktopSearch.value;
-    //     removeCurrentPosts();
-    //     current = 0;
-    //     loadPosts(body.posts, category, reverse, searchStr);
-    //   }, 500);
-    // });
   });
-
-  function searchByKeyword() {
-
-  }
 
   function removeCurrentPosts() {
     let currentPosts = postsContainer.querySelectorAll('div > a');
     currentPosts.forEach(function(post) { post.parentNode.remove() });
   }
 
-  function filterPostsByCategory(postsList, category) {
-    return postsList.filter(function(post) {
-      return post.categories.includes(category);
-    });
-  }
-
-  function loadPosts(postsList, category, reverse, searchStr) {
-    // filter by category
-    if (category) {
-      postsList = filterPostsByCategory(postsList, category);
-    }
-
+  function loadPosts(postsList, reverse, searchStr) {
     // sort
     if (reverse) {
       postsList = postsList.slice().reverse();
@@ -188,7 +147,9 @@
       postsContainer.append(listItem);
 
       msnry.appended( listItem );
+      listItem.classList.add("hidden");
       imagesLoaded( '.post-list', () => {
+        listItem.classList.remove("hidden");
         msnry.layout();
       });
     });

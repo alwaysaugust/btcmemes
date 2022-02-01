@@ -549,12 +549,16 @@ body {
       padding: 15px 100px 15px 60px;
       line-height: 20px;
 
+      &::placeholder {
+        color: #A8A8A8;
+      }
+
       body.dark & {
         background-color: #212121;
         color: white;
 
         &::placeholder {
-          color: rgba(white, 0.75);
+          color: #444444;
         }
       }
 
@@ -1175,9 +1179,9 @@ body {
       padding: 4px 26px;
       color: $almostBlack;
 
-      img {
-        width: 15px;
+      svg {
         pointer-events: none;
+        margin-right: 10px;
       }
 
       span {
@@ -1187,6 +1191,10 @@ body {
       body.dark & {
         border: 1px solid #FFF;
         color: #fff;
+
+        svg g{
+          fill: #FFF;
+        }
       }
     }
 
@@ -1387,6 +1395,9 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 2rem 0;
   border-bottom: none;
+}
+
+.hidden {
+  display: none;
 }
