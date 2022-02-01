@@ -1,53 +1,7 @@
 <footer></footer>
 
-<div class="modal-overlay" id="submit-modal">
-  <div class="modal">
-    <button type="button" class="btn btn-link btn-close">
-      <svg width="12px" height="12px" viewBox="0 0 12 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-        <g id="White" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-          <g id="White-Search" transform="translate(-1041.000000, -154.000000)" fill="#121212">
-            <g id="Actions-/-Navigation-/-close-/-24" transform="translate(1041.000000, 154.000000)">
-              <polygon id="Fill" points="12 1.05 10.95 0 6 4.95 1.05 0 0 1.05 4.95 6 0 10.95 1.05 12 6 7.05 10.95 12 12 10.95 7.05 6"></polygon>
-            </g>
-          </g>
-        </g>
-      </svg>
-    </button>
-    <h3>Upload Files</h3>
-    <form action="https://formspree.io/f/xzboerkd" method="post" enctype="multipart/form-data"
-          class="dropzone" id="uploadZone" >
-      <div id="upload-preview-template-container">
-        <div class="dz-preview dz-file-preview">
-          <div class="dz-details">
-            <div class="dz-filename"><span data-dz-name></span></div>
-            <div class="dz-size" data-dz-size></div>
-            <img data-dz-thumbnail />
-          </div>
-          <div class="dz-progress"><span class="dz-upload" data-dz-uploadprogress></span></div>
-          <div class="dz-success-mark"><span>✔</span></div>
-          <div class="dz-error-mark"><span>✘</span></div>
-          <div class="dz-error-message"><span data-dz-errormessage></span></div>
-        </div>
-
-      </div>
-      <div class="row">
-        <div class="d-flex flex-column justify-content-center align-items-center">
-          <button type="submit" class="btn btn-primary">
-            <span class="spinner-border spinner-border-sm" role="status">
-              <span class="visually-hidden">Loading...</span>
-            </span>
-            <span>Submit Story</span>
-          </button>
-          <p class="response"></p>
-        </div>
-      </div>
-    </form>
-  </div>
-</div>
-
 <script type="text/javascript" src="/assets/js/imagesloaded.js"></script>
 <script type="text/javascript" src="/assets/js/masonry.js"></script>
-<script type="text/javascript" src="/assets/js/dropzone.min.js"></script>
 <script type="text/javascript" src="/assets/js/fuse.js"></script>
 <script type="text/javascript" src="/assets/js/global.js"></script>
 {%- if page.layout != "post" -%}

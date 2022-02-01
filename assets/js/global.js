@@ -1,4 +1,4 @@
-var $grid, msnry;
+var msnry;
 (function(){
   // theme switch
   const toggles = document.querySelectorAll('.theme-toggle input');
@@ -65,37 +65,6 @@ var $grid, msnry;
       e.target.innerText = 'Copied!';
     }, function(err) {
       // 
-    });
-  });
-
-  // submit story modal
-  const submitModal = document.querySelector('#submit-modal'),
-    submitModalButton = document.querySelector('header.header .btn.submit-story'),
-    submitStoryForm = submitModal.querySelector('form'),
-    formResponse = submitModal.querySelector('.response'),
-    submitStoryFormButton = submitModal.querySelector('.btn.btn-primary');
-  submitModalButton.addEventListener('click', function(e) {
-    e.preventDefault();
-    submitModal.classList.add('open');
-  });
-
-  submitStoryForm.addEventListener('submit', function(e) {
-    e.preventDefault();
-    submitStoryFormButton.setAttribute('disabled', 'disabled');
-    let data = new FormData(submitStoryForm);
-    fetch(event.target.action, {
-      method: "post",
-      body: data,
-      headers: {
-        'Accept': 'application/json'
-      }
-    }).then(response => {
-      submitStoryFormButton.removeAttribute('disabled');
-      formResponse.innerHTML = "Thanks for your submission!";
-      submitStoryForm.reset();
-    }).catch(error => {
-      submitStoryFormButton.removeAttribute('disabled');
-      formResponse.innerHTML = "Sorry, there was an error. Please try again later.";
     });
   });
 
