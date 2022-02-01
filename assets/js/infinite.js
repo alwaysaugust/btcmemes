@@ -147,9 +147,7 @@
       postsContainer.append(listItem);
 
       msnry.appended( listItem );
-      listItem.classList.add("hidden");
       imagesLoaded( '.post-list', () => {
-        listItem.classList.remove("hidden");
         msnry.layout();
       });
     });

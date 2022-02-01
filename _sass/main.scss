@@ -307,9 +307,18 @@ body {
     top: calc(102px);
   }
 
+  @media all and (max-width: $smallMax) {
+    padding: 0;
+    border-top: 1px solid #DDDDDD;
+  }
+
   body.dark & {
     background-color: $darkBackground;
     border-bottom-color: #585858;
+
+    @media all and (max-width: $smallMax) {
+      border-top: 1px solid #585858;
+    }
   }
 
   body.layout-post & {
@@ -1400,4 +1409,15 @@ body {
 
 .hidden {
   display: none;
+}
+
+#coinkite-banner {
+  body.dark & {
+    background-color: #FFFFFF;
+    color: #000;
+
+    a {
+      color: #000;
+    }
+  }
 }
