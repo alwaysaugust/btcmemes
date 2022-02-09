@@ -22,7 +22,7 @@
 
     function formatUnit(v) {
         return v + (v.toString().indexOf('%') > 0 ? '' : 'px');
-    };
+    }
 
     function createContainer(w, h, el, altText) {
         var alt;
@@ -57,7 +57,7 @@
         el.parentNode.replaceChild(con, el);
         altText ? con.parentNode.insertBefore(alt, con.nextSibling) : null;
         return { c: con, p: play };
-    };
+    }
 
     function calculatePercentageDim (el, w, h, wOrig, hOrig) {
         var parentDimW = el.parentNode.offsetWidth;
@@ -75,7 +75,55 @@
         }
 
         return { w: w, h: h };
-    };
+    }
+
+    function drawImageProp(ctx, img, x, y, w, h, offsetX, offsetY) {
+
+        if (arguments.length === 2) {
+            x = y = 0;
+            w = ctx.canvas.width;
+            h = ctx.canvas.height;
+        }
+
+        // default offset is center
+        offsetX = typeof offsetX === "number" ? offsetX : 0.5;
+        offsetY = typeof offsetY === "number" ? offsetY : 0.5;
+
+        // keep bounds [0.0, 1.0]
+        if (offsetX < 0) offsetX = 0;
+        if (offsetY < 0) offsetY = 0;
+        if (offsetX > 1) offsetX = 1;
+        if (offsetY > 1) offsetY = 1;
+
+        var iw = img.width,
+            ih = img.height,
+            r = Math.min(w / iw, h / ih),
+            nw = iw * r,   // new prop. width
+            nh = ih * r,   // new prop. height
+            cx, cy, cw, ch, ar = 1;
+
+        // decide which gap to fill
+        if (nw < w) ar = w / nw;
+        if (Math.abs(ar - 1) < 1e-14 && nh < h) ar = h / nh;  // updated
+        nw *= ar;
+        nh *= ar;
+
+        // calc source rectangle
+        cw = iw / (nw / w);
+        ch = ih / (nh / h);
+
+        cx = (iw - cw) * offsetX;
+        cy = (ih - ch) * offsetY;
+
+        // make sure source rectangle is valid
+        if (cx < 0) cx = 0;
+        if (cy < 0) cy = 0;
+        if (cw > iw) cw = iw;
+        if (ch > ih) ch = ih;
+
+        // fill image in dest. rectangle
+        ctx.drawImage(img, cx, cy, cw, ch,  x, y, w, h);
+    }
 
     function process(el, gifs) {
         var url, con, c, w, h, duration,play, gif, playing = false, cc, isC, durationTimeout, dims, altText;
@@ -136,7 +184,9 @@
             // canvas
             c.width = dims.w;
             c.height = dims.h;
-            c.getContext('2d').drawImage(el, 0, 0, dims.w, dims.h);
+            //c.getContext('2d').drawImage(el, 0, 0, el.naturalWidth, el.naturalHeight, 0, 0, dims.w, dims.h);
+            //console.log(el.naturalWidth, el.naturalHeight, dims.w, dims.h);
+            drawImageProp(c.getContext('2d'), el, 0, 0, dims.w, dims.h)
             con.appendChild(c);
 
             // setting the actual image size
