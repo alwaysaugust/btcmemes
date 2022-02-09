@@ -1056,17 +1056,51 @@ body {
       }
     }
 
+    .download-img {
+      display: none;
+      position: absolute;
+      z-index: 1;
+      right: 10px;
+      top: 10px;
+      align-items: center;
+      justify-content: center;
+      width: 27px;
+      height: 27px;
+      background: #fff;
+      border-radius: 50%;
+      cursor: pointer;
+
+      svg {
+        pointer-events: none;
+      }
+
+      body.dark & {
+        background: #000;
+        
+        svg path {
+          fill: #fff;
+        }
+      }
+    }
+
     &:hover {
       box-shadow: 0 10px 30px 0 rgba(0,0,0,0.32);
-      border: 1px solid #000;
 
       .img-overlay {
         opacity: 1;
         transition: all 0.2s ease-in;
       }
 
-      body.dark & {
-        border: 1px solid #fff;
+      .download-img {
+        display: flex;
+      }
+
+      .masonry-image img {
+        border: 1px solid #000;
+
+        body.dark & {
+          border: 1px solid #fff;
+        }
       }
     }
   }
@@ -1095,6 +1129,22 @@ body {
       visibility: hidden;
       max-width: 100%;
       border-radius: 5px;
+    }
+
+    .masonry-image {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      object-fit: cover;
+      max-height: 100%;
+
+      canvas, img {
+        width: 100%;
+        max-height: 100%;
+        object-fit: cover;
+        border-radius: 5px;
+      }
     }
   }
 

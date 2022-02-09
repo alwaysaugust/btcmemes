@@ -113,17 +113,23 @@
       let listItemA = document.createElement("a");
       let listItemContent = document.createElement("div");
       let listItemImg = document.createElement("img");
+      let listItemRealImg = document.createElement("img");
       let imgOverlay = document.createElement("div");
+      let downloadButton = document.createElement("span");
 
       listItem.classList.add("post-item");
       listItemA.setAttribute('href', item.url);
       listItemContent.classList.add("post-item-content");
       imgOverlay.classList.add("img-overlay");
+      downloadButton.classList.add("download-img");
 
       if (item.external_file) {
-        listItemContent.style.backgroundImage = "url('" + item.external_file + "')";
+        //listItemContent.style.backgroundImage = "url('" + item.external_file + "')";
         listItemImg.setAttribute('src', item.external_file);
         listItemImg.classList.add("masonry-content");
+        listItemRealImg.setAttribute('data-gifffer', item.external_file);
+        listItemRealImg.classList.add("masonry-image");
+        downloadButton.setAttribute("data-link", item.external_file);
         imgOverlay.innerHTML = `
             <span class="link-url">${item.external_file}</span>
             <span class="share-link" data-link="${item.external_file}">
@@ -145,7 +151,10 @@
       } else {
         listItemImg.setAttribute('src', item.local_file);
         listItemImg.classList.add("masonry-content");
-        listItemContent.style.backgroundImage = "url('" + item.local_file + "')";
+        listItemRealImg.setAttribute('data-gifffer', item.local_file);
+        listItemRealImg.classList.add("masonry-image");
+        //listItemContent.style.backgroundImage = "url('" + item.local_file + "')";
+        downloadButton.setAttribute("data-link", item.local_file);
         imgOverlay.innerHTML = `
             <span class="link-url">${window.document.location.origin + item.url}</span>
             <span class="share-link" data-link="${window.document.location.origin + item.url}">
@@ -166,7 +175,20 @@
             </span>`;
       }
 
+      downloadButton.innerHTML = `
+        <svg width="14px" height="14px" viewBox="0 0 466 464" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+          <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+              <g id="Download-Icon" transform="translate(0.541910, 0.000000)" fill="#000000" fill-rule="nonzero">
+                  <path d="M444.6397,322.978 L444.6397,421.4 C444.6397,423.3609 444.35622,425.1812 443.93825,426.8609 C441.97735,436.5211 433.43825,443.8019 423.36025,443.8019 L21.14025,443.797994 C10.35925,443.797994 1.40225,435.536294 0.28125,425.035994 C0,423.774294 0,422.657094 0,421.254794 L0,322.832794 C0,311.211794 9.5195,301.832794 21,301.832794 C26.7383,301.832794 32.059,304.211694 35.84,307.992994 C39.621,311.774294 42.0002,317.094594 42.0002,322.832994 L42.0002,401.652994 L402.7802,401.652994 L402.7802,322.832994 C402.7802,311.211994 412.2997,301.832794 423.7802,301.832794 C429.5185,301.832794 434.8392,304.211894 438.6202,307.993194 C442.2608,311.918994 444.6397,317.239294 444.6397,322.977194 L444.6397,322.978 Z" id="Path"></path>
+                  <path d="M343.41747,224.418 L240.23747,327.598 C240.09685,327.87925 239.81559,328.01988 239.67888,328.15659 C235.89768,331.93779 230.99918,334.31679 226.10088,335.01599 C225.679,335.01599 225.26104,335.15661 224.83918,335.15661 C223.99934,335.29724 223.15948,335.29724 222.31968,335.29724 L219.94078,335.15661 C219.5189,335.15661 219.10094,335.01599 218.67908,335.01599 C213.63998,334.31677 208.87828,331.93789 205.10108,328.15659 C204.96046,328.01597 204.6792,327.73472 204.54249,327.598 L101.36249,224.418 C96.60079,219.6563 94.22189,213.359 94.22189,207.059 C94.22189,200.7582 96.60079,194.457 101.36249,189.7 C110.88199,180.1805 126.42149,180.1805 136.08149,189.7 L198.10149,251.72 L198.097584,24.5 C198.097584,11.059 209.156584,-2.84217094e-14 222.597584,-2.84217094e-14 C229.316384,-2.84217094e-14 235.476584,2.8008 239.956584,7.1406 C244.437084,11.6211 247.097184,17.6406 247.097184,24.4996 L247.097184,251.7196 L309.117184,189.6996 C318.636684,180.1801 334.176184,180.1801 343.836184,189.6996 C352.937784,199.3598 352.937784,214.8986 343.418214,224.4186 L343.41747,224.418 Z" id="Path"></path>
+              </g>
+          </g>
+        </svg>
+      `;
+
+      listItemContent.append(downloadButton);
       listItemContent.append(listItemImg);
+      listItemContent.append(listItemRealImg);
       listItemContent.append(imgOverlay);
       listItemA.append(listItemContent)
       listItem.append(listItemA);
@@ -175,6 +197,8 @@
       msnry.appended( listItem );
       imagesLoaded( '.post-list', () => {
         msnry.layout();
+
+        Gifffer();
       });
     });
 
@@ -183,6 +207,14 @@
       Array.from(shareLinkButtons).forEach(function(element) {
         element.removeEventListener('click', onShareButtonClicked);
         element.addEventListener('click', onShareButtonClicked);
+      });
+    }
+
+    const downloadButtons = document.querySelectorAll('span.download-img');
+    if (downloadButtons) {
+      Array.from(downloadButtons).forEach(function(element) {
+        element.removeEventListener('click', onDownloadButtonClicked);
+        element.addEventListener('click', onDownloadButtonClicked);
       });
     }
 
