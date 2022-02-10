@@ -190,24 +190,25 @@
             con.appendChild(c);
 
             // setting the actual image size
-            con.setAttribute('style', 'cursor:pointer;width:' + dims.w + 'px;height:' + dims.h + 'px;background:none;border:none;padding:0;');
+            //con.setAttribute('style', 'cursor:pointer;width:' + dims.w + 'px;height:' + dims.h + 'px;background:none;border:none;padding:0;');
+            con.setAttribute('style', 'cursor:pointer;width:100%;height:100%;background:none;border:none;padding:0;');
 
             c.style.width = '100%';
             c.style.height = '100%';
 
-            if (w.toString().indexOf('%') > 0 && h.toString().indexOf('%') > 0) {
-                con.style.width = w;
-                con.style.height = h;
-            } else if (w.toString().indexOf('%') > 0) {
-                con.style.width = w;
-                con.style.height = 'inherit';
-            } else if (h.toString().indexOf('%') > 0) {
-                con.style.width = 'inherit';
-                con.style.height = h;
-            } else {
-                con.style.width = dims.w + 'px';
-                con.style.height = dims.h + 'px';
-            }
+            // if (w.toString().indexOf('%') > 0 && h.toString().indexOf('%') > 0) {
+            //     con.style.width = w;
+            //     con.style.height = h;
+            // } else if (w.toString().indexOf('%') > 0) {
+            //     con.style.width = w;
+            //     con.style.height = 'inherit';
+            // } else if (h.toString().indexOf('%') > 0) {
+            //     con.style.width = 'inherit';
+            //     con.style.height = h;
+            // } else {
+            //     con.style.width = dims.w + 'px';
+            //     con.style.height = dims.h + 'px';
+            // }
 
         };
         el.src = url;
