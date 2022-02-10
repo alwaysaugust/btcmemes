@@ -5,8 +5,8 @@ layout: default
 <div class="page post">
   <div class="container">
     <div class="row">
-      <div class="col-lg-6">
-        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+      <div class="col-lg-6 d-flex align-items-center">
+        <article class="post h-entry w-100" itemscope itemtype="http://schema.org/BlogPosting">
           {%- if page.external_file -%}
             <div class="featured-image">
               <img src="{{ page.external_file }}" alt="{{ page.tags }}" />
@@ -19,7 +19,28 @@ layout: default
           <a class="u-url" href="{{ url_path | relative_url }}" hidden></a>
         </article>
       </div>
-      <div class="col-lg-6 d-flex align-items-center">
+      <div class="col-lg-6 d-flex justify-content-center flex-column">
+        {%- if page.twitter_author -%}
+        <div class="post-header">
+          <a href="http://twitter.com/{{ page.twitter_author }}" target="_blank" class="twitter-link">
+            <svg width="36px" height="30px" viewBox="0 0 36 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+              <g id="Without-upload" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                <g id="White-Details" transform="translate(-735.000000, -259.000000)" fill="#000000">
+                  <g id="Group-6" transform="translate(735.125000, 248.000000)">
+                    <g id="Brand-/-Social-/-logo--twitter-/-32" transform="translate(0.000000, 11.477402)">
+                      <path d="M11.245,29.0500981 C16.7893587,29.0849693 22.116738,26.8978985 26.0372692,22.9773673 C29.9578004,19.0568361 32.1448712,13.7294568 32.11,8.18509808 C32.11,7.86009808 32.11,7.55134808 32.11,7.22634808 C33.5328382,6.18389228 34.7643725,4.90287664 35.75,3.44009808 C34.4102159,4.02606569 32.9925536,4.41469126 31.54125,4.59384808 C33.0799797,3.67699114 34.2345254,2.23380904 34.79125,0.531348078 C33.357222,1.39168951 31.7847006,1.99650542 30.14375,2.31884808 C27.8717429,-0.102036584 24.2582504,-0.697824944 21.3293256,0.865536227 C18.4004008,2.4288974 16.8843666,5.76265388 17.63125,8.99759808 C11.7354281,8.70820565 6.24078355,5.92543405 2.51875,1.34384808 C0.59306139,4.68611596 1.58772943,8.948979 4.79375,11.0938481 C3.65399513,11.0498902 2.54061063,10.7381425 1.54375,10.1838481 L1.54375,10.2650981 C1.52288025,13.7335735 3.92608611,16.7460428 7.3125,17.4963481 C6.25241177,17.781471 5.14197476,17.8258885 4.0625,17.6263481 C5.03740168,20.5678093 7.75696641,22.5782053 10.855,22.6475981 C8.26996806,24.7284495 5.05714846,25.8738397 1.73875,25.8975981 C1.15692391,25.8807588 0.576464137,25.831935 0,25.7513481 C3.35880213,27.8913075 7.26245717,29.0195315 11.245,29.0013481" id="Fill"></path>
+                    </g>
+                  </g>
+                </g>
+              </g>
+            </svg>
+            <span>{{ page.twitter_author }}</span>
+          </a>
+        </div>
+        {%- endif -%}
+        <div class="post-content e-content" itemprop="articleBody">
+          {{ content }}
+        </div>
         <div class="card ">
           <span class="card-header">Share this post with your friends</span>
           <input type="text" value="{{ url_path }}" class="form-control" readonly="readonly" />
@@ -40,6 +61,14 @@ layout: default
             </svg>
             <span>Copy Share Link</span>
           </button>
+          <div class="card-footer">
+            {%- if page.external_file -%}
+            <span>Source: {{ page.external_file }}</span>
+            {%- else -%}
+            <span>Source: {{site.url}}{{ page.local_file }}</span>
+            {%- endif -%}
+          </div>
+
         </div>
       </div>
     </div>

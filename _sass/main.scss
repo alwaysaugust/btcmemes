@@ -604,7 +604,7 @@ body {
       right: 7px;
       position: absolute;
       line-height: 26px;
-      font-size: 12px;
+      font-size: .75rem;
       font-weight: bold;
       padding: 4px 26px;
       color: $almostBlack;
@@ -1216,6 +1216,10 @@ body {
     }
   }
 
+  article {
+    width: 100%;
+  }
+
   .featured-image {
     width: 100%;
 
@@ -1225,9 +1229,30 @@ body {
     }
   }
 
+  .post-header {
+    margin-bottom: 20px;
+
+    .twitter-link {
+      font-size: 1.75rem;
+      text-decoration: none;
+      font-weight: bold;
+      color: #121212;
+      line-height: 52px;
+
+      body.dark & {
+        color: #fff;
+        svg path {
+          fill: #fff;
+        }
+      }
+    }
+  }
+
   .post-content {
-    margin-top: 35px;
-    font-size: 0.875rem;
+    margin-bottom: 30px;
+    font-size: 0.75rem;
+    font-weight: 400;
+    line-height: 2;
   }
 
   .submit-cta {
@@ -1269,25 +1294,43 @@ body {
     width: 100%;
 
     .card-header {
-      font-size: 12px;
+      font-size: .75rem;
       font-weight: 500;
       margin-bottom: 14px;
       display: inline-block;
+    }
+
+    .card-footer {
+      font-size: .625rem;
+      line-height: 24px;
+      color: #777;
     }
 
     .form-control {
       margin-bottom: 20px;
       border-radius: 4px;
       width: 100%;
+      font-size: .75rem;
+      font-weight: 400;
+      line-height: 26px;
+      background-color: #f6f6f6;
+      color: #000;
+      border: none;
+
+      body.dark & {
+        background-color: #212121;
+        color: #fff;
+      }
     }
 
     .btn.share {
       border: 1px solid #000;
       line-height: 26px;
-      font-size: 12px;
+      font-size: .75rem;
       font-weight: bold;
       padding: 4px 26px;
       color: $almostBlack;
+      margin-bottom: 20px;
 
       svg {
         pointer-events: none;
