@@ -1,0 +1,8 @@
+---
+layout: post
+date: 2022-02-15 15:18:49 +0000.
+title: Meme #118
+twitter_author: "@bitcoingrogu"
+local_file: /assets/images/118.jpeg
+tags: 0 bitcoin drake
+---

@@ -1,0 +1,8 @@
+---
+layout: post
+date: 2022-02-15 15:18:49 +0000.
+title: Meme #142
+twitter_author: "@moonwearshop"
+local_file: /assets/images/142.jpeg
+tags: have-fun-staying-poor leonardio-dicaprio cartoon
+---

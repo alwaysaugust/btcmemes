@@ -1,0 +1,8 @@
+---
+layout: post
+date: 2022-02-15 15:18:49 +0000.
+title: Meme #45
+twitter_author: "@yunglerk_"
+local_file: /assets/images/45.jpeg
+tags: wheel-of-fortune game-show have-fun-staying-poor
+---

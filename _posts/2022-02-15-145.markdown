@@ -1,0 +1,8 @@
+---
+layout: post
+date: 2022-02-15 15:18:49 +0000.
+title: Meme #145
+twitter_author: "@seedsrthenewccy"
+local_file: /assets/images/145.jpeg
+tags: putin vladamir index fund financial advisor
+---

@@ -1,0 +1,8 @@
+---
+layout: post
+date: 2022-02-15 15:18:49 +0000.
+title: Meme #151
+twitter_author: "@nipslippage"
+local_file: /assets/images/151.jpeg
+tags: cartoon crimes r/cryptocurrency
+---

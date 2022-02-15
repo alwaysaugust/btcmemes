@@ -1,0 +1,8 @@
+---
+layout: post
+date: 2022-02-15 15:18:49 +0000.
+title: Meme #83
+twitter_author: "@j_h3ndr1x"
+local_file: /assets/images/83.jpeg
+tags: cartoon lasers 
+---

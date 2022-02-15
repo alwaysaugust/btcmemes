@@ -1,0 +1,8 @@
+---
+layout: post
+date: 2022-02-15 15:18:49 +0000.
+title: Meme #77
+twitter_author: "@aivadios"
+local_file: /assets/images/77.jpeg
+tags: movie-meme lotr lord-of-the-rings profits btc
+---

@@ -1,0 +1,8 @@
+---
+layout: post
+date: 2022-02-15 15:18:49 +0000.
+title: Meme #10
+twitter_author: "@cryptograffiti"
+local_file: /assets/images/10.jpeg
+tags: blockchain lingerie tuxedo btc
+---

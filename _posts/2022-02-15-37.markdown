@@ -1,0 +1,8 @@
+---
+layout: post
+date: 2022-02-15 15:18:49 +0000.
+title: Meme #37
+twitter_author: "@tomerstrolight"
+local_file: /assets/images/37.jpeg
+tags: groceries tesla btc 1998 usd 2021 2012 2014 cart
+---

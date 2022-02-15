@@ -1,0 +1,8 @@
+---
+layout: post
+date: 2022-02-15 15:18:49 +0000.
+title: Meme #131
+twitter_author: "@MarioStoja"
+local_file: /assets/images/131.jpeg
+tags: goldbug dunk-on cartoon window office-humor
+---

@@ -1,0 +1,8 @@
+---
+layout: post
+date: 2022-02-15 15:18:49 +0000.
+title: Meme #62
+twitter_author: "@no_statists"
+local_file: /assets/images/62.jpeg
+tags: price-index cartoon
+---

@@ -1,0 +1,8 @@
+---
+layout: post
+date: 2022-02-15 15:18:49 +0000.
+title: Meme #12
+twitter_author: "@kit_sats"
+local_file: /assets/images/12.jpeg
+tags: msm cnn bbc cnbc media bitcoin
+---
