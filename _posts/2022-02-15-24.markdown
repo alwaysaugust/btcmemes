@@ -1,0 +1,8 @@
+---
+layout: post
+date: 2022-02-15 15:18:49 +0000.
+title: Meme #24
+twitter_author: "@kit_sats"
+local_file: /assets/images/24.jpeg
+tags: investing-in-bitcoin too-late 2017 2010 set-for-life
+---

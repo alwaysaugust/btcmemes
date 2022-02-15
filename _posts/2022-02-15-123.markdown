@@ -1,0 +1,8 @@
+---
+layout: post
+date: 2022-02-15 15:18:49 +0000.
+title: Meme #123
+twitter_author: "@modl_hodl"
+local_file: /assets/images/123.jpeg
+tags: wsb-chairman control msm
+---

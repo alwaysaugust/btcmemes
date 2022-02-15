@@ -1,0 +1,8 @@
+---
+layout: post
+date: 2022-02-15 15:18:49 +0000.
+title: Meme #42
+twitter_author: "@sicha_"
+local_file: /assets/images/42.jpeg
+tags: cartoon knife stab btc bank-account
+---

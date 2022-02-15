@@ -1,0 +1,8 @@
+---
+layout: post
+date: 2022-02-15 15:18:49 +0000.
+title: Meme #36
+twitter_author: "@StevieZollo"
+local_file: /assets/images/36.jpeg
+tags: dog wife friends global-financial-system
+---

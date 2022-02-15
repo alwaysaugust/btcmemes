@@ -1,0 +1,8 @@
+---
+layout: post
+date: 2022-02-15 15:18:49 +0000.
+title: Meme #125
+twitter_author: "@HDczar"
+local_file: /assets/images/125.jpeg
+tags: chuck-norris mine bitcoin
+---

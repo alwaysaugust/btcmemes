@@ -1,0 +1,8 @@
+---
+layout: post
+date: 2022-02-15 15:18:49 +0000.
+title: Meme #87
+twitter_author: "@ryz0n"
+local_file: /assets/images/87.jpeg
+tags: lotr movie-meme gold frodo
+---

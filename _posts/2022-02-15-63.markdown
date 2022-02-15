@@ -1,0 +1,8 @@
+---
+layout: post
+date: 2022-02-15 15:18:49 +0000.
+title: Meme #63
+twitter_author: "@serkhioo"
+local_file: /assets/images/63.jpeg
+tags: cartoon bitcoin-plummet maximalist
+---

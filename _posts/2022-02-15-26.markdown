@@ -1,0 +1,8 @@
+---
+layout: post
+date: 2022-02-15 15:18:49 +0000.
+title: Meme #26
+twitter_author: "@kit_sats"
+local_file: /assets/images/26.jpeg
+tags: cato-institute nakamoto-institute rib-eyes bitcoin memes popular ideology
+---

@@ -1,0 +1,8 @@
+---
+layout: post
+date: 2022-02-15 15:18:49 +0000.
+title: Meme #130
+twitter_author: "@waitlamMe"
+local_file: /assets/images/130.jpeg
+tags: ant mine red
+---

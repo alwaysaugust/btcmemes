@@ -1,0 +1,8 @@
+---
+layout: post
+date: 2022-02-15 15:18:49 +0000.
+title: Meme #160
+twitter_author: "@anarcho_Curious"
+local_file: /assets/images/160.jpeg
+tags: noah's-ark bitcoin usd jump-in
+---

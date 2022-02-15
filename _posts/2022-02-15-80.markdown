@@ -1,0 +1,8 @@
+---
+layout: post
+date: 2022-02-15 15:18:49 +0000.
+title: Meme #80
+twitter_author: "@driftparadigm"
+local_file: /assets/images/80.jpeg
+tags: bitcoin gamer cartoon
+---

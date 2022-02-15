@@ -1,0 +1,8 @@
+---
+layout: post
+date: 2022-02-15 15:18:49 +0000.
+title: Meme #133
+twitter_author: "@gs_svrgn"
+local_file: /assets/images/133.jpeg
+tags: diversify
+---

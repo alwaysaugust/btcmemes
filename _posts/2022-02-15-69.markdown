@@ -1,0 +1,8 @@
+---
+layout: post
+date: 2022-02-15 15:18:49 +0000.
+title: Meme #69
+twitter_author: "@btcale"
+local_file: /assets/images/69.jpeg
+tags: what-women-want chart meme
+---

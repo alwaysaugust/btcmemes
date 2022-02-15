@@ -1,0 +1,8 @@
+---
+layout: post
+date: 2022-02-15 15:18:49 +0000.
+title: Meme #6
+twitter_author: "@americanserfdom"
+local_file: /assets/images/6.jpeg
+tags: electricity gold store-of-value candle
+---

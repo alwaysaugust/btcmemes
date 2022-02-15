@@ -1,0 +1,8 @@
+---
+layout: post
+date: 2022-02-15 15:18:49 +0000.
+title: Meme #99
+twitter_author: "@odiousdebt"
+local_file: /assets/images/99.jpeg
+tags: cartoon battle have-fun-staying-poor army
+---

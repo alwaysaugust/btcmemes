@@ -1,0 +1,8 @@
+---
+layout: post
+date: 2022-02-15 15:18:49 +0000.
+title: Meme #58
+twitter_author: "@boilerbitroom"
+local_file: /assets/images/58.jpeg
+tags: commandments don't-spend-bitcoin card-reader
+---
