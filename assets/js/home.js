@@ -8,14 +8,15 @@
     itemSelector: '.post-item',
     columnWidth: '.post-sizer',
     percentPosition: true,
-    horizontalOrder: true,
     stagger: 30,
-    gutter: '.gutter-sizer'
+    gutter: '.gutter-sizer',
+    transitionDuration: 0,
   });
 
   imagesLoaded( elem, () => {
     elem.classList.remove("hidden");
-    msnry.layout();
+    
+    window.setTimeout(function(){ msnry.layout(); }, 1000);
 
     // Play gif on hover
     Gifffer();

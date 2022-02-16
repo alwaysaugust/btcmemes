@@ -1125,6 +1125,11 @@ body {
     padding: 15px;
     cursor: pointer;
 
+    video {
+      width: 100%;
+      height: auto;
+    }
+
     .masonry-content {
       visibility: hidden;
       max-width: 100%;
@@ -1223,7 +1228,8 @@ body {
   .featured-image {
     width: 100%;
 
-    img {
+    img,
+    video {
       width: 100%;
       height: auto;
     }

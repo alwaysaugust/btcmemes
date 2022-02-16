@@ -2,20 +2,26 @@
 layout: default
 ---
 {% capture url_path %}{{site.url}}{{page.url}}{% endcapture %}
+{% if page.external_file %}
+  {% assign media_file = page.external_file %}
+{% else %}
+  {% assign media_file = page.local_file %}
+{% endif %}
+{% assign file_ext = media_file | split: '.' | last %}
 <div class="page post">
   <div class="container">
     <div class="row">
       <div class="col-lg-6 d-flex align-items-center">
         <article class="post h-entry w-100" itemscope itemtype="http://schema.org/BlogPosting">
-          {%- if page.external_file -%}
-            <div class="featured-image">
-              <img src="{{ page.external_file }}" alt="{{ page.tags }}" />
-            </div>
-          {%- else -%}
-            <div class="featured-image">
-              <img src="{{ page.local_file }}" alt="{{ page.tags }}" />
-            </div>
-          {%- endif -%}
+          <div class="featured-image">
+            {% if file_ext == "mp4" %}
+              <video loop="true" controls="true" muted="true" autoplay="true">
+                <source src="{{ media_file }}" type="video/{{ file_ext }}">
+              </video>
+            {% else %}
+              <img src="{{ media_file }}" alt="{{ page.tags }}" />
+            {% endif %}
+          </div>
           <a class="u-url" href="{{ url_path | relative_url }}" hidden></a>
         </article>
       </div>

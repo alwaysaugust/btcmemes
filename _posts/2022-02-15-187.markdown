@@ -1,0 +1,8 @@
+---
+layout: post
+date: 2022-02-15 20:13:10 +0000.
+title: Meme #187
+twitter_author: "@markjones41"
+local_file: /assets/images/187.mp4
+tags: captain-phillips movie-meme pirates btc
+---

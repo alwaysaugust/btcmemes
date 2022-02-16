@@ -1,0 +1,8 @@
+---
+layout: post
+date: 2022-02-15 20:13:10 +0000.
+title: Meme #172
+twitter_author: "@bitcoinnode16"
+local_file: /assets/images/172.mp4
+tags: patience movie
+---

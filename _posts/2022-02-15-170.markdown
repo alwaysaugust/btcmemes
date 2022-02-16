@@ -1,0 +1,8 @@
+---
+layout: post
+date: 2022-02-15 20:13:10 +0000.
+title: Meme #170
+twitter_author: "@swedetoshi"
+local_file: /assets/images/170.gif
+tags: federal reserve axe movie
+---
