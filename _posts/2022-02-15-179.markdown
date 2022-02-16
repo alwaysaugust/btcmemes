@@ -1,0 +1,8 @@
+---
+layout: post
+date: 2022-02-15 20:13:10 +0000.
+title: Meme #179
+twitter_author: "@w3ttaco"
+local_file: /assets/images/179.mp4
+tags: boxing bitcoin punch
+---

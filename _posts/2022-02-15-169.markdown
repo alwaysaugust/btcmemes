@@ -1,0 +1,8 @@
+---
+layout: post
+date: 2022-02-15 20:13:10 +0000.
+title: Meme #169
+twitter_author: "@csrvermaak"
+local_file: /assets/images/169.mp4
+tags: dollar-purchasing-power usd plummet
+---

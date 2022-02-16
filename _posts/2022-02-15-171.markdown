@@ -1,0 +1,8 @@
+---
+layout: post
+date: 2022-02-15 20:13:10 +0000.
+title: Meme #171
+twitter_author: "@bitcoinnode16"
+local_file: /assets/images/171.mp4
+tags: elon smoking-weed michael-saylor bongo
+---
