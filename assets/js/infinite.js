@@ -62,13 +62,12 @@
     });
 
     // desktop search
-    const searchButton = bottomHeader.querySelector('.btn.search'),
-      desktopSearch = bottomHeader.querySelector('#desktop-search');
+    const desktopSearch = bottomHeader.querySelector('#desktop-search');
     let desktopTimeout;
-    searchButton.addEventListener('click', function(e) {
+    desktopSearch.addEventListener('keyup', function(e) {
       e.preventDefault();
       clearTimeout(desktopTimeout);
-      timeout = setTimeout(function() {
+      desktopTimeout = setTimeout(function() {
         searchStr = desktopSearch.value;
         removeCurrentPosts();
         current = 0;
